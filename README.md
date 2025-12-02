@@ -1,2 +1,1 @@
-# power-analysis
-FILL THIS #TODO
+# A Data - Driven Study of Power Outages
