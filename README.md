@@ -68,6 +68,27 @@ I analysed the Number of total Power Outages per State (From 2000 to 2016)
   frameborder="0"
 ></iframe>
 
+And then I analysed the Number of total Power Outages per Cause (From 2000 to 2016)
+
+<iframe
+  src="assets/frequency-outages.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+**Bivariate Analysis** <br>
+
+I made an ==Interactive== plot showing Power Outages per Year. The Slider can move from 2000 to 2016
+
+<iframe
+  src="assets/power-outages-2000.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+And Finally, I checked the Number of Total Hurricane related Power Outages per State (From 2000 to 2016)  
 
 <iframe
   src="assets/Hurricane-related.html"
