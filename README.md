@@ -58,10 +58,9 @@ After cleaning, here's the head of my power dataframe, with few columns selected
 **Univariate Analysis** <br>
 
 <iframe
-  src="assets/outages-per-state.html"
+  src="assets/Hurricane-related.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
-
 
