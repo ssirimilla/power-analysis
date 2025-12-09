@@ -35,5 +35,29 @@ The original raw DataFrame contains 1534 rows, corresponding to 1534 outages, an
 |`'CUSTOMERS.AFFECTED'`                |Number of customers affected by the power outage event|
 |`'POPULATION'`	|Population in the U.S. state in a year|
 
+# Data Cleaning and Exploratory Data Analysis
+---
+**Data Cleaning** <br>
+
+1. I first kept columns necessary for our analysis. the column names we kept are listed in the table above. 
+
+2. I merged the `OUTAGE.START.DATE` and `OUTAGE.START.TIME` columns to create a single timestamp column called `OUTAGE.START`. I repeated this process for the restoration fields by combining `OUTAGE.RESTORATION.DATE` and `OUTAGE.RESTORATION.TIME` into `OUTAGE.RESTORATION`. Since the new timestamp columns contain all the necessary information, I removed the original date and time columns afterward.
+
+3. I then inspected my key outcome variables, `OUTAGE.DURATION` and `CUSTOMERS.AFFECTED`, to identify entries with a value of 0. Because a major outage cannot realistically have a duration of zero minutes or affect zero customers, these values are likely placeholders for missing data. I replaced all zeros in these columns with np.nan.
+
+After cleaning, here's the head of my power dataframe.
+
+|   YEAR |   MONTH | U.S._STATE   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |   POPULATION | OUTAGE.START        | OUTAGE.RESTORATION   |
+|-------:|--------:|:-------------|:-------------------|----------------:|:-------------------|:-------------------|:------------------------|------------------:|------------------:|---------------------:|-------------:|:--------------------|:---------------------|
+|   2014 |       5 | Minnesota    | East North Central |            -0.1 | normal             | intentional attack | vandalism               |               nan |                 1 |                  nan |      5457125 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |
+|   2010 |      10 | Minnesota    | East North Central |            -1.5 | cold               | severe weather     | heavy wind              |               nan |              3000 |                70000 |      5310903 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |
+|   2012 |       6 | Minnesota    | East North Central |            -0.1 | normal             | severe weather     | thunderstorm            |               nan |              2550 |                68200 |      5380443 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
+|   2015 |       7 | Minnesota    | East North Central |             1.2 | warm               | severe weather     | nan                     |               nan |              1740 |               250000 |      5489594 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
+|   2010 |      11 | Minnesota    | East North Central |            -1.4 | cold               | severe weather     | winter storm            |               nan |              1860 |                60000 |      5310903 | 2010-11-13 15:00:00 | 2010-11-14 22:00:00  |
+
+
+
+
+
 
 
