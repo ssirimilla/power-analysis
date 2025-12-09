@@ -45,16 +45,15 @@ The original raw DataFrame contains 1534 rows, corresponding to 1534 outages, an
 
 3. I then inspected my key outcome variables, `OUTAGE.DURATION` and `CUSTOMERS.AFFECTED`, to identify entries with a value of 0. Because a major outage cannot realistically have a duration of zero minutes or affect zero customers, these values are likely placeholders for missing data. I replaced all zeros in these columns with np.nan.
 
-After cleaning, here's the head of my power dataframe.
+After cleaning, here's the head of my power dataframe, with few columns selected.
 
-|   YEAR |   MONTH | U.S._STATE   | CLIMATE.REGION     |   ANOMALY.LEVEL | CLIMATE.CATEGORY   | CAUSE.CATEGORY     | CAUSE.CATEGORY.DETAIL   |   HURRICANE.NAMES |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |   POPULATION | OUTAGE.START        | OUTAGE.RESTORATION   |
-|-------:|--------:|:-------------|:-------------------|----------------:|:-------------------|:-------------------|:------------------------|------------------:|------------------:|---------------------:|-------------:|:--------------------|:---------------------|
-|   2014 |       5 | Minnesota    | East North Central |            -0.1 | normal             | intentional attack | vandalism               |               nan |                 1 |                  nan |      5457125 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |
-|   2010 |      10 | Minnesota    | East North Central |            -1.5 | cold               | severe weather     | heavy wind              |               nan |              3000 |                70000 |      5310903 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |
-|   2012 |       6 | Minnesota    | East North Central |            -0.1 | normal             | severe weather     | thunderstorm            |               nan |              2550 |                68200 |      5380443 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |
-|   2015 |       7 | Minnesota    | East North Central |             1.2 | warm               | severe weather     | nan                     |               nan |              1740 |               250000 |      5489594 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |
-|   2010 |      11 | Minnesota    | East North Central |            -1.4 | cold               | severe weather     | winter storm            |               nan |              1860 |                60000 |      5310903 | 2010-11-13 15:00:00 | 2010-11-14 22:00:00  |
-
+|   YEAR |   MONTH | U.S._STATE   | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |
+|-------:|--------:|:-------------|:--------------------|:---------------------|------------------:|
+|   2014 |       5 | Minnesota    | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |                 1 |
+|   2010 |      10 | Minnesota    | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 |
+|   2012 |       6 | Minnesota    | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |
+|   2015 |       7 | Minnesota    | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |
+|   2010 |      11 | Minnesota    | 2010-11-13 15:00:00 | 2010-11-14 22:00:00  |              1860 |
 
 
 
