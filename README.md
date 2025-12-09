@@ -98,4 +98,35 @@ And Finally, I checked the Number of Total <span style="background-color:#f8d7da
   frameborder="0"
 ></iframe>
 
-Yay
+I see that there are only certain US states whose power is affected by <span style="background-color:#f8d7da;">hurricanes</span>. This resuly is useful for the Hurricane-outage prediction Model I shall build eventually. 
+
+**Grouping and Aggregates** <br>
+
+I first grouped <span style="background-color:#f8d7da;">hurricanes</span> based on the max, mean and total outage <u>minutes</u> they caused. 
+
+| HURRICANE.NAMES   |   max_outage |   mean_outage |   total_outage |
+|:------------------|-------------:|--------------:|---------------:|
+| Sandy             |        20280 |       8668.94 |         147372 |
+| Ike               |        27698 |      10565.8  |          84526 |
+| Rita              |        18804 |       9711    |          38844 |
+| Gustav            |        17812 |      15513.5  |          31027 |
+| Frances           |        12060 |       6012    |          30060 |
+
+And then I grouped <span style="background-color:#f8d7da;">hurricanes</span> based on their frequency over months of the year (From 2000 to 2016)
+
+| MONTH     |   HURRICANE.NAMES |
+|:----------|------------------:|
+| January   |                 0 |
+| February  |                 0 |
+| March     |                 0 |
+| April     |                 0 |
+| May       |                 0 |
+| June      |                 0 |
+| July      |                 3 |
+| August    |                12 |
+| September |                36 |
+| October   |                21 |
+| November  |                 0 |
+| December  |                 0 |
+
+July, August, September, October happens to be "<span style="background-color:#f8d7da;">hurricanes</span>" season. 
