@@ -1,4 +1,4 @@
-## Power Outages and Hurricanes - A Data-Driven Study
+
 # Introduction
 ---
 **Project for DSC80 at UCSD** <br>
