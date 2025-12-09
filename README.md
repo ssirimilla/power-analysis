@@ -11,6 +11,7 @@ In this project, I analyzed a dataset documenting major power outages in the Uni
 The dataset provides details about each outage along with geographic, climatic, and land-use information, as well as state-level electricity usage and economic indicators.
 
 I wanted to know - **what is the relation between hurricanes and power outages?** Although I explored many features in my DataFrame, hurricanes has been a coherent theme in my project. 
+Since Hurricanes the theme, everytime I analyze something related to "<span style="background-color:rgb(234, 11, 11);">Hurricane</span>", I shall highlight it in red.  
 
 First, I will clean my Dataframe and visualize few columns to get a feel of the data. I will check whether _____(fill missingness) and also will perform a permutation test to check if the Outages caused by Hurricanes and Outages by other events come from the same distribution. Then finally, I will predict whether a Power Outage is caused by a hurricane or not. 
 
@@ -88,7 +89,7 @@ I made an <mark>Interactive</mark> plot showing Power Outages per Year. The Slid
   frameborder="0"
 ></iframe>
 
-And Finally, I checked the Number of Total Hurricane related Power Outages per State (From 2000 to 2016)  
+And Finally, I checked the Number of Total <span style="background-color:rgb(234, 11, 11);">Hurricane</span> related Power Outages per State (From 2000 to 2016)  
 
 <iframe
   src="assets/Hurricane-related.html"
