@@ -1,4 +1,4 @@
-
+## Power Outages and Hurricanes - A Data-Driven Study
 # Introduction
 ---
 **Project for DSC80 at UCSD** <br>
@@ -56,7 +56,18 @@ After cleaning, here's the head of my power dataframe, with few columns selected
 |   2015 |       7 | Minnesota    | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |
 |   2010 |      11 | Minnesota    | 2010-11-13 15:00:00 | 2010-11-14 22:00:00  |              1860 |
 
+
 **Univariate Analysis** <br>
+
+I analysed the Number of total Power Outages per State (From 2000 to 2016)
+
+<iframe
+  src="assets/outages-per-state.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 
 <iframe
   src="assets/Hurricane-related.html"
