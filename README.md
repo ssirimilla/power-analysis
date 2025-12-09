@@ -79,7 +79,7 @@ And then I analysed the Number of total Power Outages per Cause (From 2000 to 20
 
 **Bivariate Analysis** <br>
 
-I made an ==Interactive== plot showing Power Outages per Year. The Slider can move from 2000 to 2016
+I made an <mark>Interactive</mark> plot showing Power Outages per Year. The Slider can move from 2000 to 2016
 
 <iframe
   src="assets/power-outages-2000.html"
