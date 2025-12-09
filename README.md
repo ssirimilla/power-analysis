@@ -129,4 +129,32 @@ And then I grouped <span style="background-color:#f8d7da;">hurricanes</span> bas
 | November  |                 0 |
 | December  |                 0 |
 
-July, August, September, October happens to be "<span style="background-color:#f8d7da;">hurricanes</span>" season. 
+July, August, September, October happens to be "<span style="background-color:#f8d7da;">hurricane</span>" season. 
+
+# Assessment of Missingness
+---
+
+# Hypothesis Testing
+---
+I wanted to check if the Outages caused by <span style="background-color:#f8d7da;">hurricanes</span> and Outages caused by other reasons come from the same population.
+
+But the hurricane sample is very small (n≈70) compared to other casuality's data (n≈1500), therefore this large imbalance affects the ability of statistical tests to detect differences. 
+
+Even though the hurricane sample is small, I still want to get a feel of how different the distributions are, compared to other causalities. 
+
+- *Null Hypothesis* : distributions of outage durations are the same for hurricane and non-hurricane Outages
+- *Alternate hypothesis* : distribution of outages are different for hurricane and non-hurricane Outages.
+
+Test Statistic is the Difference in means. I performed over 30,000 simulations to generate an empirical distribution of the test statisic under the null hypothesis.
+
+The p-value I got was <mark>3.33×10⁻⁵</mark>, so with a standard significance level of 0.05, we reject the null hypothesis. But still we can not conclude anything as the sample size of hurricanes is very minute compared to the total dataframe size. Although the hurricane sample is small, the test still provides a useful way to evaluate how hurricane outages compare to other outage causes.
+
+<iframe
+  src="assets/permtest-related.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+# Framing a Prediction Model
+---
