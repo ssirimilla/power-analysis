@@ -1,3 +1,4 @@
+# Power Outages and Hurricanes - A Data-Driven Study
 # Introduction
 ---
 **Project for DSC80 at UCSD** <br>
@@ -47,13 +48,13 @@ The original raw DataFrame contains 1534 rows, corresponding to 1534 outages, an
 
 After cleaning, here's the head of my power dataframe, with few columns selected.
 
-|   YEAR |   MONTH | U.S._STATE   | OUTAGE.RESTORATION   |   OUTAGE.DURATION |
-|-------:|--------:|:-------------|:---------------------|------------------:|
-|   2014 |       5 | Minnesota    | 2014-05-11 18:39:00  |                 1 |
-|   2010 |      10 | Minnesota    | 2010-10-28 22:00:00  |              3000 |
-|   2012 |       6 | Minnesota    | 2012-06-20 23:00:00  |              2550 |
-|   2015 |       7 | Minnesota    | 2015-07-19 07:00:00  |              1740 |
-|   2010 |      11 | Minnesota    | 2010-11-14 22:00:00  |              1860 |
+|   YEAR |   MONTH | U.S._STATE   | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |
+|-------:|--------:|:-------------|:--------------------|:---------------------|------------------:|
+|   2014 |       5 | Minnesota    | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |                 1 |
+|   2010 |      10 | Minnesota    | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 |
+|   2012 |       6 | Minnesota    | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |
+|   2015 |       7 | Minnesota    | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |
+|   2010 |      11 | Minnesota    | 2010-11-13 15:00:00 | 2010-11-14 22:00:00  |              1860 |
 
 **Univariate Analysis** <br>
 
