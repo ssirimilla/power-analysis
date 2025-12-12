@@ -11,7 +11,7 @@ In this project, I analyzed a dataset documenting major power outages in the Uni
 The dataset provides details about each outage along with geographic, climatic, and land-use information, as well as state-level electricity usage and economic indicators.
 
 I wanted to know - **what is the relation between hurricanes and power outages?** Although I explored many features in my DataFrame, hurricanes has been a coherent theme in my project. 
-Since Hurricanes the theme, everytime I analyze something related to "<span style="background-color:#f8d7da;">Hurricane</span>", I shall highlight it in red.  
+Since Hurricanes is the theme, everytime I analyze something related to "<span style="background-color:#f8d7da;">Hurricane</span>", I shall highlight it in red.  
 
 First, I will clean my Dataframe and visualize few columns to get a feel of the data. I will check whether _____(fill missingness) and also will perform a permutation test to check if the Outages caused by Hurricanes and Outages by other events come from the same distribution. Then finally, I will predict whether a Power Outage is caused by a hurricane or not. 
 
@@ -158,3 +158,14 @@ The p-value I got was <mark>3.33×10⁻⁵</mark>, so with a standard significan
 
 # Framing a Prediction Model
 ---
+
+Now I shall predict if an Outage was caused by an <span style="background-color:#f8d7da;">hurricane</span> or not. I shall assign the event caused by a hurricane as (1) and other case as (0).
+This is a <mark>Binary Classification</mark> problem. I restricted features to information which is salient to my prediction and is also available before the event: `'MONTH'`, `'U.S._STATE'`, `'CLIMATE.CATEGORY'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.REGION'`. I used a logistic regression classifier with appropriate preprocessing and class balancing. Because the positive class is very rare, I evaluated performance using the F1-score, which better reflects model quality in imbalanced settings compared to accuracy.
+
+# Baseline Model
+---
+
+
+
+
+
