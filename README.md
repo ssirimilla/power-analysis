@@ -160,7 +160,8 @@ The p-value I got was <mark>3.33×10⁻⁵</mark>, so with a standard significan
 ---
 
 Now I shall predict if an Outage was caused by an <span style="background-color:#f8d7da;">hurricane</span> or not. I shall assign the event caused by a hurricane as (1) and other case as (0).
-This is a <mark>Binary Classification</mark> problem. I restricted features to information which is salient to my prediction and is also available before the event: `'MONTH'`, `'U.S._STATE'`, `'CLIMATE.CATEGORY'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.REGION'`. I used a logistic regression classifier with appropriate preprocessing and class balancing. Because the positive class is very rare, I evaluated performance using the F1-score, which better reflects model quality in imbalanced settings compared to accuracy.
+
+This is a Binary Classification problem. I restricted features to information which is salient to my prediction and is also available before the event: `'MONTH'`, `'U.S._STATE'`, `'CLIMATE.CATEGORY'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.REGION'`. I used a logistic regression classifier with appropriate preprocessing and class balancing. Because the positive class is very rare, I evaluated performance using the F1-score, which better reflects model quality in imbalanced settings compared to accuracy.
 
 # Baseline Model
 ---
