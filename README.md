@@ -232,3 +232,19 @@ Since the final model has better F-1 scores, this indicates better performance o
 
 # Fairness Analysis
 ---
+
+To assess fairness, I compared the precision of hurricane predictions between outages occurring in coastal states and non-coastal states. Precision was chosen because hurricane outages are rare and false positives are costly. I conducted a permutation test with 1,000 permutations to test whether differences in precision could be attributed to random chance.
+
+- *Null Hypothesis* - The model is fair. Its precision for hurricane prediction is the same for outages in coastal states and non-coastal states, and any observed difference is due to random chance.
+- *Alternative Hypothesis* - The model is unfair. Its precision for hurricane prediction is lower for non-coastal states than for coastal states.
+
+The null hypothesis stated that the model’s precision is the same across both groups, while the alternative hypothesis stated that precision is lower for non-coastal states. The resulting p-value of <mark>0.008</mark> indicates that we reject the null hypothesis at the 0.05 significance level.
+
+This suggests that the model exhibits statistically significant disparity in precision across geographic groups.
+
+<iframe
+  src="assets/permtest-final.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
