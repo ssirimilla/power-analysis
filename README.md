@@ -173,21 +173,21 @@ For the baseline model, I am only using two features:
 
 Because both features are categorical, I used a OneHotEncoder inside a ColumnTransformer to convert each categorical value into binary indicator columns. I then trained a logistic regression classifier with class_weight='balanced' to address the severe class imbalance (hurricane outages are very rare).
 
-I trained 80% of the data and tested 20% of the data. Here are the results:
+I trained 80% of the data and tested 20% of the data (around 307 data poins). Here are the results:
 
 | Actual \\ Predicted | Negative (0) | Positive (1) |
 |---------------------|--------------|--------------|
 | **Negative (0)**    | TN = 267     | FP = 26      |
 | **Positive (1)**    | FN = 2       | TP = 12      |
 
-Few parameters I estimated:
+Few parameters I calculated:
 
 |          |precision    |recall    |f1-score   |support  |
 |:---------|------------:|---------:|----------:|--------:|
 |0         |0.99         |0.91      |0.95       |293      |
 |1         |0.32         |0.86      |0.46       |14       |
 
-And overall:
+<mark> **And overall:** </mark>
 - Accuracy: 0.91
 - Macro F1: 0.71
 - Weighted F1: 0.93
@@ -205,6 +205,30 @@ I consider the baseline model not very good, despite the high accuracy.
 For the final model, along with `'MONTH'` and `'CLIMATE.REGION'`, I shall be using `'U.S._STATE'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.CATEGORY'`.
 
 - `'U.S._STATE'` - nominal categorical. As we have seen in our data visualisation of states vs hurricane outages, Coastal and southeastern states are far more likely to experience hurricane-driven outages than inland states.
-- `'CLIMATE.CATEGORY'` and `'ANOMALY.LEVEL'` capture deviations from typical climate conditions (climatic episodes). Hurricanes are more likely under certain climate regimes, so these features provide information about the broader environmental conditions that influence storm formation.
+- `'CLIMATE.CATEGORY'` (ordinal) and `'ANOMALY.LEVEL'` (quantitative) capture deviations from typical climate conditions (climatic episodes). Hurricanes are more likely under certain climate regimes, so these features provide information about the broader environmental conditions that influence storm formation.
 
+I used RandomSearchCV to generate the salient hyperparameters. The final Random Forest model used 20 trees, no maximum depth, a minimum of 10 samples per split, 1 sample per leaf, and log feature subsampling.
 
+Again, after training 80% of the data and testing the rest 20% (around 307 points), here are the results:
+
+| Actual \\ Predicted | Negative (0) | Positive (1) |
+|---------------------|--------------|--------------|
+| **Negative (0)**    | TN = 289     | FP = 4       |
+| **Positive (1)**    | FN = 3       | TP = 11      |
+
+Few parameters I calculated:
+
+|          |precision    |recall    |f1-score   |support  |
+|:---------|------------:|---------:|----------:|--------:|
+|0         |0.99         |0.99      |0.99       |293      |
+|1         |0.73         |0.79      |0.76       |14       |
+
+<mark> **And overall:** </mark>
+- Accuracy: 0.98
+- Macro F1: 0.87
+- Weighted F1: 0.98
+
+Since the final model has better F-1 scores, this indicates better performance of the final model.
+
+# Fairness Analysis
+---
