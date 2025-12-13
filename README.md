@@ -166,6 +166,31 @@ This is a Binary Classification problem. I restricted features to information wh
 # Baseline Model
 ---
 
+For the baseline model, I am only using two features:
+
+- `'MONTH'` – ordinal categorical (1–12)
+- `'CLIMATE.REGION'` – nominal categorical
+
+Because both features are categorical, I used a OneHotEncoder inside a ColumnTransformer to convert each categorical value into binary indicator columns. I then trained a logistic regression classifier with class_weight='balanced' to address the severe class imbalance (hurricane outages are very rare).
+
+|          |precision    |recall    |f1-score   |support  |
+|:---------|------------:|---------:|----------:|--------:|
+|0         |0.99         |0.91      |0.95       |293      |
+|1         |0.32         |0.86      |0.46       |14       |
+
+- Accuracy: 0.91
+- Macro F1: 0.71
+- Weighted F1: 0.93
+
+I consider the baseline model not very good, despite the high accuracy. 
+
+- The model has extremely poor precision for hurricanes (0.32). This means that when the model predicts “hurricane,” it is wrong 68% of the time. This makes it unreliable for rare-event prediction.
+
+- The high recall for hurricanes (0.86) comes from overpredicting them.The model predicts “hurricane” too often, inflating recall but damaging precision.
+
+- Accuracy is misleading because ~95% of events are non-hurricanes. A model could predict “not hurricane” for everything and still be highly accurate.
+
+
 
 
 
