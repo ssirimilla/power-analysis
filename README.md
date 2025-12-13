@@ -11,7 +11,6 @@ In this project, I analyzed a dataset documenting major power outages in the Uni
 The dataset provides details about each outage along with geographic, climatic, and land-use information, as well as state-level electricity usage and economic indicators.
 
 I wanted to know - **what is the relation between hurricanes and power outages?** Although I explored many features in my DataFrame, hurricanes has been a coherent theme in my project. 
-Since Hurricanes is the theme, everytime I analyze something related to "<span style="background-color:#f8d7da;">Hurricane</span>", I shall highlight it in red.  
 
 First, I will clean my Dataframe and visualize few columns to get a feel of the data. I will check whether _____(fill missingness) and also will perform a permutation test to check if the Outages caused by Hurricanes and Outages by other events come from the same distribution. Then finally, I will predict whether a Power Outage is caused by a hurricane or not. 
 
@@ -89,7 +88,7 @@ I made an <mark>Interactive</mark> plot showing Power Outages per Year. The Slid
   frameborder="0"
 ></iframe>
 
-And Finally, I checked the Number of Total <span style="background-color:#f8d7da;">Hurricane</span> related Power Outages per State (From 2000 to 2016)  
+And Finally, I checked the Number of Total Hurricane related Power Outages per State (From 2000 to 2016)  
 
 <iframe
   src="assets/Hurricane-related.html"
@@ -98,11 +97,11 @@ And Finally, I checked the Number of Total <span style="background-color:#f8d7da
   frameborder="0"
 ></iframe>
 
-I see that there are only certain US states whose power is affected by <span style="background-color:#f8d7da;">hurricanes</span>. This resuly is useful for the Hurricane-outage prediction Model I shall build eventually. 
+I see that there are only certain US states whose power is affected by hurricanes. This result is useful for the Hurricane-outage prediction Model I shall build eventually. 
 
 **Grouping and Aggregates** <br>
 
-I first grouped <span style="background-color:#f8d7da;">hurricanes</span> based on the max, mean and total outage <u>minutes</u> they caused. 
+I first grouped hurricanes based on the max, mean and total outage <u>minutes</u> they caused. 
 
 | HURRICANE.NAMES   |   max_outage |   mean_outage |   total_outage |
 |:------------------|-------------:|--------------:|---------------:|
@@ -112,7 +111,7 @@ I first grouped <span style="background-color:#f8d7da;">hurricanes</span> based 
 | Gustav            |        17812 |      15513.5  |          31027 |
 | Frances           |        12060 |       6012    |          30060 |
 
-And then I grouped <span style="background-color:#f8d7da;">hurricanes</span> based on their frequency over months of the year (From 2000 to 2016)
+And then I grouped hurricanes based on their frequency over months of the year (From 2000 to 2016)
 
 | MONTH     |   HURRICANE.NAMES |
 |:----------|------------------:|
@@ -129,14 +128,22 @@ And then I grouped <span style="background-color:#f8d7da;">hurricanes</span> bas
 | November  |                 0 |
 | December  |                 0 |
 
-July, August, September, October happens to be "<span style="background-color:#f8d7da;">hurricane</span>" season. 
+July, August, September, October happens to be "hurricane" season. 
 
 # Assessment of Missingness
 ---
+**NMAR Analysis**
+
+CUSTOMERS.AFFECTED is plausibly NMAR because outages affecting very few customers are less likely to have their impact quantified, making the probability of missingness dependent on the unobserved number of customers affected. If additional observed data about outage severity, reporting practices, or geographic context were available, the missingness could potentially be explained by these variables, making it MAR instead.
+
+**Missingness Dependency**
+
+
+
 
 # Hypothesis Testing
 ---
-I wanted to check if the Outages caused by <span style="background-color:#f8d7da;">hurricanes</span> and Outages caused by other reasons come from the same population.
+I wanted to check if the Outages caused by hurricanes and Outages caused by other reasons come from the same population.
 
 But the hurricane sample is very small (n≈70) compared to other casuality's data (n≈1500), therefore this large imbalance affects the ability of statistical tests to detect differences. 
 
@@ -159,7 +166,7 @@ The p-value I got was <mark>3.33×10⁻⁵</mark>, so with a standard significan
 # Framing a Prediction Model
 ---
 
-Now I shall predict if an Outage was caused by an <span style="background-color:#f8d7da;">hurricane</span> or not. I shall assign the event caused by a hurricane as (1) and other case as (0).
+Now I shall predict if an Outage was caused by an hurricane or not. I shall assign the event caused by a hurricane as (1) and other case as (0).
 
 This is a <mark>Binary Classification</mark> problem. I restricted features to information which is salient to my prediction and is also available before the event: `'MONTH'`, `'U.S._STATE'`, `'CLIMATE.CATEGORY'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.REGION'`. I used a logistic regression classifier with appropriate preprocessing and class balancing. Because the positive class is very rare, I evaluated performance using the F1-score, which better reflects model quality in imbalanced settings compared to accuracy.
 
