@@ -175,10 +175,10 @@ Now I check the graph for `MONTH` when `CUSTOMERS.AFFECTED` is missing or not mi
 Now I perform the permutation test:
 - Null hypothesis - Missingness of `CUSTOMERS.AFFECTED` is independent of `MONTH`.
 - Alternative hypothesis - Missingness of `CUSTOMERS.AFFECTED` depends on `MONTH`.
-Test statistic will be the total variation distance (TVD).
+Test statistic will be proportion of customers affected missing.
 
 <iframe
-  src="assets/finalplot2a.html"
+  src="assets/finalplot2aA.html"
   width="800"
   height="600"
   frameborder="0"
