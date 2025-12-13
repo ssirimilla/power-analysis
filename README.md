@@ -147,10 +147,43 @@ First, I check the graph for `IS.HURRICANE` when `CUSTOMERS.AFFECTED` is missing
   frameborder="0"
 ></iframe>
 
-- Null hypothesis - Missingness of `CUSTOMERS.AFFECTED` is independent of IS_HURRICANE.
-- Alternative hypothesis - Missingness of `CUSTOMERS.AFFECTED` depends on IS_HURRICANE.
+Now I perform the permutation test:
+- Null hypothesis - Missingness of `CUSTOMERS.AFFECTED` is independent of `IS_HURRICANE`.
+- Alternative hypothesis - Missingness of `CUSTOMERS.AFFECTED` depends on `IS_HURRICANE`.
+Test statistic will be the difference in proportion missing between hurricane and non-hurricane outages. 
 
-Test statistic will be the difference in proportion missing between hurricane and non-hurricane outages
+<iframe
+  src="assets/finalplot1a.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+After 10000 trials, I get a p-value of <mark>0</mark>, so we reject the null hypothesis. This indicates that hurricane-related outages are significantly less likely to have missing customer counts.
+
+---
+
+Now I check the graph for `MONTH` when `CUSTOMERS.AFFECTED` is missing or not missing.
+
+<iframe
+  src="assets/finalplot2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Now I perform the permutation test:
+- Null hypothesis - Missingness of `CUSTOMERS.AFFECTED` is independent of `MONTH`.
+- Alternative hypothesis - Missingness of `CUSTOMERS.AFFECTED` depends on `MONTH`.
+Test statistic will be the total variation distance (TVD).
+
+<iframe
+  src="assets/finalplot2a.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 
 # Hypothesis Testing
 ---
