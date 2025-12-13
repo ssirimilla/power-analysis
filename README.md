@@ -178,12 +178,13 @@ Now I perform the permutation test:
 Test statistic will be proportion of customers affected missing.
 
 <iframe
-  src="assets/finalplot2aA.html"
+  src="assets/finalplot2aAa.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
 
+After 1000 trials, I get a p-value of <mark>0.849</mark>, so we fail to reject the null hypothesis. Therefore, we found no evidence that missingness depends on `MONTH`, indicating that the probability of missing customer counts does not vary meaningfully across the calendar year.
 
 # Hypothesis Testing
 ---
