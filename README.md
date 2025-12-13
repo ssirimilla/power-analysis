@@ -178,7 +178,7 @@ Because both features are categorical, I used a OneHotEncoder inside a ColumnTra
 |0         |0.99         |0.91      |0.95       |293      |
 |1         |0.32         |0.86      |0.46       |14       |
 
-
+And overall:
 - Accuracy: 0.91
 - Macro F1: 0.71
 - Weighted F1: 0.93
