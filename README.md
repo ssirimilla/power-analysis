@@ -161,17 +161,26 @@ The p-value I got was <mark>3.33×10⁻⁵</mark>, so with a standard significan
 
 Now I shall predict if an Outage was caused by an <span style="background-color:#f8d7da;">hurricane</span> or not. I shall assign the event caused by a hurricane as (1) and other case as (0).
 
-This is a Binary Classification problem. I restricted features to information which is salient to my prediction and is also available before the event: `'MONTH'`, `'U.S._STATE'`, `'CLIMATE.CATEGORY'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.REGION'`. I used a logistic regression classifier with appropriate preprocessing and class balancing. Because the positive class is very rare, I evaluated performance using the F1-score, which better reflects model quality in imbalanced settings compared to accuracy.
+This is a <mark>Binary Classification</mark> problem. I restricted features to information which is salient to my prediction and is also available before the event: `'MONTH'`, `'U.S._STATE'`, `'CLIMATE.CATEGORY'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.REGION'`. I used a logistic regression classifier with appropriate preprocessing and class balancing. Because the positive class is very rare, I evaluated performance using the F1-score, which better reflects model quality in imbalanced settings compared to accuracy.
 
 # Baseline Model
 ---
 
 For the baseline model, I am only using two features:
 
-- `'MONTH'` – ordinal categorical (1–12)
-- `'CLIMATE.REGION'` – nominal categorical
+- `'MONTH'` – ordinal categorical (1–12). As I have seen in my aggregate analysis, certain months have a high frequency of hurricane outages, while some months have none.
+- `'CLIMATE.REGION'` – nominal categorical. This feature captures geographic exposure to hurricanes, and encodes spatial vulnerability.
 
 Because both features are categorical, I used a OneHotEncoder inside a ColumnTransformer to convert each categorical value into binary indicator columns. I then trained a logistic regression classifier with class_weight='balanced' to address the severe class imbalance (hurricane outages are very rare).
+
+I trained 80% of the data and tested 20% of the data. Here are the results:
+
+| Actual \\ Predicted | Negative (0) | Positive (1) |
+|---------------------|--------------|--------------|
+| **Negative (0)**    | TN = 267     | FP = 26      |
+| **Positive (1)**    | FN = 2       | TP = 12      |
+
+Few parameters I estimated:
 
 |          |precision    |recall    |f1-score   |support  |
 |:---------|------------:|---------:|----------:|--------:|
@@ -186,13 +195,16 @@ And overall:
 I consider the baseline model not very good, despite the high accuracy. 
 
 - The model has extremely poor precision for hurricanes (0.32). This means that when the model predicts “hurricane,” it is wrong 68% of the time. This makes it unreliable for rare-event prediction.
-
 - The high recall for hurricanes (0.86) comes from overpredicting them.The model predicts “hurricane” too often, inflating recall but damaging precision.
-
 - Accuracy is misleading because ~95% of events are non-hurricanes. A model could predict “not hurricane” for everything and still be highly accurate.
 
 
+# Final Model
+---
 
+For the final model, along with `'MONTH'` and `'CLIMATE.REGION'`, I shall be using `'U.S._STATE'`, `'ANOMALY.LEVEL'`, and `'CLIMATE.CATEGORY'`.
 
+- `'U.S._STATE'` - nominal categorical. As we have seen in our data visualisation of states vs hurricane outages, Coastal and southeastern states are far more likely to experience hurricane-driven outages than inland states.
+- `'CLIMATE.CATEGORY'` and `'ANOMALY.LEVEL'` capture deviations from typical climate conditions (climatic episodes). Hurricanes are more likely under certain climate regimes, so these features provide information about the broader environmental conditions that influence storm formation.
 
 
