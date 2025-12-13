@@ -134,12 +134,23 @@ July, August, September, October happens to be "hurricane" season.
 ---
 **NMAR Analysis**
 
-CUSTOMERS.AFFECTED is plausibly NMAR because outages affecting very few customers are less likely to have their impact quantified, making the probability of missingness dependent on the unobserved number of customers affected. If additional observed data about outage severity, reporting practices, or geographic context were available, the missingness could potentially be explained by these variables, making it MAR instead.
+`CUSTOMERS.AFFECTED` is plausibly NMAR because outages affecting very few customers are less likely to have their impact quantified, making the probability of missingness dependent on the unobserved number of customers affected. If additional observed data about outage severity, reporting practices, or geographic context were available, the missingness could potentially be explained by these variables, making it MAR instead.
 
 **Missingness Dependency**
 
+First, I check the graph for `IS.HURRICANE` when `CUSTOMERS.AFFECTED` is missing or not missing.
 
+<iframe
+  src="assets/finalplot1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
+- Null hypothesis - Missingness of `CUSTOMERS.AFFECTED` is independent of IS_HURRICANE.
+- Alternative hypothesis - Missingness of `CUSTOMERS.AFFECTED` depends on IS_HURRICANE.
+
+Test statistic will be the difference in proportion missing between hurricane and non-hurricane outages
 
 # Hypothesis Testing
 ---
